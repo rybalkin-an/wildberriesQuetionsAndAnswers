@@ -11,6 +11,9 @@ import com.codeborne.selenide.ElementsCollection;
 import static com.codeborne.selenide.Selenide.open;
 
 public class SelectQuestionInSearchFormTest extends BaseTest{
+    private final String question = "доставка товаров";
+    private final String firstExpectedResult = "Доставка товаров";
+    private final String secondExpectedResult = "Когда поступит заказ?";
 
     @BeforeMethod
     public void setUp() {
@@ -20,15 +23,17 @@ public class SelectQuestionInSearchFormTest extends BaseTest{
     @Severity(SeverityLevel.NORMAL)
     @Test(description="Получение ответов на частые вопросы используя поиск")
     public void TestFaqSearch(){
-        FaqPage faqPage = new MainPage().goToFaqPage();
+        FaqPage faqPage = new MainPage()
+                .goToFaqPage();
+
         ElementsCollection searchResultList = faqPage
-                .sendKeysToSearchInputFields("доставка товаров")
+                .sendKeysToSearchInputFields(question)
                 .clickSearchFieldButton()
                 .getSearchResultList();
 
         searchResultList.shouldHaveSize(2);
-        searchResultList.get(0).shouldHave(Condition.text("Когда поступит заказ?"));
-        searchResultList.get(1).shouldHave(Condition.text("Доставка товаров"));
+        searchResultList.get(0).shouldHave(Condition.text(secondExpectedResult));
+        searchResultList.get(1).shouldHave(Condition.text(firstExpectedResult));
     }
 
 }
