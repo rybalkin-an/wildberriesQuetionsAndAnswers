@@ -18,15 +18,16 @@ allure serve путь_до_папки/allure_report/
 
 ### Для запуска теста в Docker контейнере:
 1. Установить Docker https://www.docker.com/get-started
-2. Перейти в дерикторий с тестовым проектам и создать образ с тестом командой
+2. Cоздать образ с тестом командой
 ```
-docker build -t myimg:latest .
+docker build https://github.com/rybalkin-an/wildberriesQuetionsAndAnswers.git -t myimg:latest
 ```
 3. Скачать из docker репозитория образ с Chrome 59.0
 ```
 docker pull selenoid/vnc:chrome_59.0
 ```
-4. Запустить тесты командой
+4. Скачать docker-compose.yaml
+5. Из директория со скаченным файлом запустить тесты командой
 ```
 docker-compose up
 ```
