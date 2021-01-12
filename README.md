@@ -7,7 +7,7 @@ simple UI test
 - [Allure commandline](https://docs.qameta.io/allure/#_commandline)
 - [Selenoid](https://aerokube.com/selenoid/latest/)
 
-Для лоакльного запуска теста выполнить:
+### Для лоакльного запуска теста выполнить:
 ```
 mvn clean install
 ```
@@ -16,7 +16,7 @@ mvn clean install
 allure serve путь_до_папки/allure_report/
 ```
 
-Для запуска теста в Docker контейнере:
+### Для запуска теста в Docker контейнере:
 1. Установить Docker https://www.docker.com/get-started
 2. Перейти в дерикторий с тестовым проектам и создать образ с тестом командой
 ```
